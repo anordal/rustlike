@@ -11,8 +11,7 @@ int test_match(const Homo& res)
 	res.match(
 		[&i]() { i = 0; },
 		[&i](const int& arg) { i = 1000 + arg; },
-		[&i](const int& arg) { i = 2000 + arg; }
-	);
+		[&i](const int& arg) { i = 2000 + arg; });
 	return i;
 }
 

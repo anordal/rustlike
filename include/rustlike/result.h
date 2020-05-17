@@ -1,5 +1,5 @@
-#include <variant>
 #include <functional>
+#include <variant>
 
 namespace rustlike {
 
@@ -89,7 +89,7 @@ constexpr Result<T, E> Result<T, E>::makeErr(Args&&... args)
 template <typename T, typename E>
 void Result<T, E>::match(OnNone onNone, OnOk onOk, OnErr onErr) const
 {
-	switch(m_state.index()) {
+	switch (m_state.index()) {
 		case 0: onNone(); break;
 		case 1: onOk(std::get<1>(m_state)); break;
 		case 2: onErr(std::get<2>(m_state)); break;
@@ -99,7 +99,7 @@ void Result<T, E>::match(OnNone onNone, OnOk onOk, OnErr onErr) const
 template <typename T, typename E>
 const T* Result<T, E>::get_ok() const
 {
-	switch(m_state.index()) {
+	switch (m_state.index()) {
 		case 1: return &std::get<1>(m_state);
 		default: return nullptr;
 	}
@@ -108,7 +108,7 @@ const T* Result<T, E>::get_ok() const
 template <typename T, typename E>
 const E* Result<T, E>::get_err() const
 {
-	switch(m_state.index()) {
+	switch (m_state.index()) {
 		case 2: return &std::get<2>(m_state);
 		default: return nullptr;
 	}
@@ -139,7 +139,7 @@ template <typename T, typename E>
 Result<T, E> Result<T, E>::map_ok(OnOkMove onOk)
 {
 	Result<T, E> ret;
-	switch(m_state.index()) {
+	switch (m_state.index()) {
 		case 1: ret = onOk(std::move(std::get<1>(m_state))); break;
 		default: ret = std::move(*this); break;
 	}
@@ -150,7 +150,7 @@ template <typename T, typename E>
 Result<T, E> Result<T, E>::map_err(OnErrMove onErr)
 {
 	Result<T, E> ret;
-	switch(m_state.index()) {
+	switch (m_state.index()) {
 		case 2: ret = onErr(std::move(std::get<2>(m_state))); break;
 		default: ret = std::move(*this); break;
 	}
