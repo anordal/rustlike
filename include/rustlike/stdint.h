@@ -1,5 +1,7 @@
 // This file is public domain.
 
+#pragma once
+
 #include <cstddef>
 #include <cstdint>
 
