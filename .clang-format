@@ -1,17 +1,23 @@
+# Take this as a style guide.
+# Don't reformat existing code if it does more damage than good.
+# Common sense > clang-format.
 
-TabWidth: '4'
-IndentWidth: '4'
+TabWidth: 4
+IndentWidth: 4
 UseTab: Always
+InsertNewlineAtEOF: true
 
 AlignAfterOpenBracket: AlwaysBreak
 BreakConstructorInitializers: BeforeComma
-BinPackArguments: 'false'
-BinPackParameters: 'false'
+BinPackArguments: false
+BinPackParameters: false
 
 AlwaysBreakTemplateDeclarations: Yes
 PointerAlignment: Left
 AccessModifierOffset: -4
 BreakBeforeBraces: Mozilla
-IndentCaseLabels: 'true'
-AllowShortCaseLabelsOnASingleLine: 'true'
-FixNamespaceComments: 'true'
+IndentCaseLabels: true
+AllowShortCaseLabelsOnASingleLine: true
+FixNamespaceComments: true
+SpaceAfterTemplateKeyword: true
+ColumnLimit: 0
